@@ -1,0 +1,2 @@
+# admongo
+Mongo's Management
