@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<!-- The ng-app directive tells angular which module we'll use
+    for our app. In this case the one defined in scripts/app.js -->
+<body ng-app="admongo">
+	...
+	<!-- The ng-view directive specifies that our templates
+      (such as views/main.html) will be loaded into this div. -->
+	<div class="container" ng-view></div>
+
+	<!-- Here we load AngularJS and the AngularJS resource component -->
+	<script src="../bower_components/angular/angular.js"></script>
+	<script src="../bower_components/angular-resource/angular-resource.js"></script>
+
+	<!-- Here we include our own angular scripts -->
+	<!-- build:js scripts/scripts.js -->
+	<script src="../app.js"></script>
+	<script src="../controllers/mainCtrl.js"></script>
+	<!-- endbuild -->
+
+</body>
+</html>

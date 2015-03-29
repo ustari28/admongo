@@ -1,0 +1,25 @@
+{
+  "name": "admongo",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ustari28/admongo",
+  "authors": [
+    "ALAN GABRIEL <ustargab@gmail.com>"
+  ],
+  "description": "Mongo's Management",
+  "main": "css/main.css",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "[\"mongo\"",
+    "\"management\"",
+    "\"node\"",
+    "\"angularjs\"]"
+  ],
+  "license": "GNU GENERAL PLUBLIC LICENNCE 2.0",
+  "private": true,
+  "dependencies": {
+    "angular-bootstrap": "~0.12.1",
+    "angular-resource": "~1.3.15"
+  }
+}
