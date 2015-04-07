@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.fullstack</groupId>
+	<artifactId>ad-mongo</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
+
+	<name>AdMongo</name>
+	<description>FullStack with Mongo Management</description>
+
+	<properties>
+		<jetty.version>9.2.9-SNAPSHOT</jetty.version>
+		<maven.antrun>1.7</maven.antrun>
+	</properties>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.jetty</groupId>
+						<artifactId>jetty-maven-plugin</artifactId>
+						<version>${jetty.version}</version>
+						<configuration>
+							<jettyXml>jetty.xml</jettyXml>
+							<webAppSourceDirectory>${project.basedir}/src/staticfiles</webAppSourceDirectory>
+							<webApp>
+								<contextPath>/</contextPath>
+								<descriptor>${project.basedir}/src/over/here/web.xml</descriptor>
+							</webApp>
+							<war>${project.basedir}/target/admongo.war</war>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start-jetty</id>
+								<phase>test-compile</phase>
+								<goals>
+									<goal>deploy-war</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>stop-jetty</id>
+								<phase>test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>${maven.antrun}</version>
+						<configuration>
+							<target>
+								<copy todir="${project.build.directory}/${project.build.finalName}">
+									<fileset dir="${basedir}/src/staticfiles">
+										<include name="**/*" />
+									</fileset>
+								</copy>
+							</target>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
