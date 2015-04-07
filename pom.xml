@@ -11,9 +11,16 @@
 	<description>FullStack with Mongo Management</description>
 
 	<properties>
-		<jetty.version>9.2.9-SNAPSHOT</jetty.version>
+		<jetty.version>9.2.9.v20150224</jetty.version>
 		<maven.antrun>1.7</maven.antrun>
+		<maven.war.plugin.version>2.4</maven.war.plugin.version>
+		<maven.minimum.version>3.1.0</maven.minimum.version>
 	</properties>
+	
+	<prerequisites>
+		<maven>${maven.minimum.version}</maven>
+	</prerequisites>
+	
 	<pluginRepositories>
 		<pluginRepository>
 			<id>central</id>
@@ -42,8 +49,8 @@
 							<jettyXml>jetty.xml</jettyXml>
 							<webAppSourceDirectory>${project.basedir}/src/staticfiles</webAppSourceDirectory>
 							<webApp>
-								<contextPath>/</contextPath>
-								<descriptor>${project.basedir}/src/over/here/web.xml</descriptor>
+								<contextPath>/admongo</contextPath>
+								<descriptor>${project.basedir}/src/main/webapp/WEB-INF/web.xml</descriptor>
 							</webApp>
 							<war>${project.basedir}/target/admongo.war</war>
 						</configuration>
@@ -86,6 +93,28 @@
 							</execution>
 						</executions>
 					</plugin>
+					<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven.war.plugin.version}</version>
+				<configuration>
+					<archiveClasses>true</archiveClasses>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifestEntries>
+							<Bundle-RequiredExecutionEnvironment>J2SE-1.7</Bundle-RequiredExecutionEnvironment>
+							<Export-Package>${project.groupId};version=${project.version}</Export-Package>
+							<Bundle-Version>${project.version}</Bundle-Version>
+							<Bundle-Name>${project.name}</Bundle-Name>
+							<Bundle-Description>${project.description}</Bundle-Description>
+							<Bundle-ClassPath>.</Bundle-ClassPath>
+							<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+							<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+							<Implementation-Version>${git.revision}</Implementation-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
 				</plugins>
 			</build>
 		</profile>
