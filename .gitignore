@@ -1,3 +1,5 @@
 /.settings
-/bower_components
 /target
+/bin
+/libs/bower_components
+.classpath

@@ -17,7 +17,7 @@ admongo.config(['$routeProvider', function($routeProvider) {
 admongo.config(['$translateProvider', function($translateProvider) {
 	console.log("configurando tp");
 	$translateProvider.useStaticFilesLoader({
-		prefix : 'src/staticfiles/i18n/',
+		prefix : 'i18n/',
 		suffix : '.json'
 	});
 	$translateProvider.determinePreferredLanguage(function() {
@@ -30,4 +30,13 @@ admongo.config(['$translateProvider', function($translateProvider) {
 		// return navigator.language.slice(0,2);
 	});
 	$translateProvider.fallbackLanguage('es');
+}]);
+
+admongo.config(['$httpProvider', function($httpProvider) {
+	//initialize get if not there
+	if (!$httpProvider.defaults.headers.get) {
+	    $httpProvider.defaults.headers.get = {};
+	}
+	//disable IE ajax request caching
+	$httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 }]);
