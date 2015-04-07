@@ -2,7 +2,7 @@
 
 // The controller function let's us give our controller a name: MainCtrl
 // We'll then pass an anonymous function to serve as the controller itself.
-admongo.controller('MainCtrl', function($scope) {
+angular.module('main').controller('MainCtrl', function($scope) {
 console.log("main ctrl");
 	// Using AngularJS dependency injection, we've injected the $scope variable
 	// Anything we attach to scope will be available to us in the view.

@@ -1,7 +1,11 @@
 'use strict';
 // Here we set up an angular module. We'll attach controllers and
 // other components to this module.
-var admongo = angular.module('admongo', []);
+var admongo = angular.module('admongo', ['ngResource',
+                                         'ngRoute',
+                                         'ui.bootstrap',
+                                         'pascalprecht.translate',
+                                         'main']);
 // Configuracion del route provider
 admongo.config(['$routeProvider', function($routeProvider) {
 	console.log("configurando rp");
@@ -37,6 +41,6 @@ admongo.config(['$httpProvider', function($httpProvider) {
 	if (!$httpProvider.defaults.headers.get) {
 	    $httpProvider.defaults.headers.get = {};
 	}
-	//disable IE ajax request caching
-	$httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 }]);
+
+angular.module('main',[]);
