@@ -11,6 +11,9 @@
 	<description>FullStack with Mongo Management</description>
 
 	<properties>
+		<app.port>8080</app.port>
+		<app.root>http://localhost</app.root>
+		<app.context.path>admongo</app.context.path>
 		<jetty.version>6.1.10</jetty.version>
 		<maven.antrun>1.7</maven.antrun>
 		<maven.war.plugin.version>2.4</maven.war.plugin.version>
@@ -31,7 +34,7 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<executions>
 							<execution>
-							<id>Actualizando dependencias con bower</id>
+								<id>Actualizando dependencias con bower</id>
 								<phase>generate-sources</phase>
 								<goals>
 									<goal>exec</goal>
@@ -54,7 +57,7 @@
 							<scanIntervalSeconds>10</scanIntervalSeconds>
 							<connectors>
 								<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-									<port>8080</port>
+									<port>${app.port}</port>
 									<maxIdleTime>60000</maxIdleTime>
 								</connector>
 							</connectors>
@@ -128,10 +131,11 @@
 							<scanIntervalSeconds>10</scanIntervalSeconds>
 							<connectors>
 								<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-									<port>8080</port>
+									<port>${app.port}</port>
 									<maxIdleTime>60000</maxIdleTime>
 								</connector>
 							</connectors>
+							<contextPath>${app.context.path}</contextPath>
 						</configuration>
 					</plugin>
 					<plugin>

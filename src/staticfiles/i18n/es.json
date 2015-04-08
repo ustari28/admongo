@@ -1,5 +1,6 @@
 {
 	"TITLE_APP" : "Administración Mongo",
 	"TITLE_APP_MIN" : "AdMongo",
-	"HOME" : "Inicio"
+	"ABOUT" : "Acerca de",
+	"CONTACT" : "Contacto"
 }
