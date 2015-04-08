@@ -21,12 +21,30 @@
 		<maven>${maven.minimum.version}</maven>
 	</prerequisites>
 
-
 	<profiles>
 		<profile>
 			<id>local</id>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<executable>bower</executable>
+							<arguments>
+								<argument>update</argument>
+							</arguments>
+							<workingDirectory>${basedir}/libs</workingDirectory>
+						</configuration>
+					</plugin>
 					<plugin>
 						<groupId>org.mortbay.jetty</groupId>
 						<artifactId>maven-jetty-plugin</artifactId>
@@ -53,12 +71,12 @@
 									</fileset>
 									<fileset dir="${basedir}/src/main/webapp">
 										<include name="**/*" />
-										<exclude name="WEB-INF"/>
+										<exclude name="WEB-INF" />
 									</fileset>
 									<fileset dir="${basedir}/libs">
 										<include name="**/*" />
-										<exclude name="*.log"/>
-										<exclude name="bower.json"/>
+										<exclude name="*.log" />
+										<exclude name="bower.json" />
 									</fileset>
 								</copy>
 							</target>
