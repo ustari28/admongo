@@ -10,8 +10,7 @@ var admongo = angular.module('admongo', ['ngResource',
 admongo.config(['$routeProvider', function($routeProvider) {
 	console.log("configurando rp");
 	$routeProvider.when('/', {
-		templateUrl : 'views/main.html',
-		controller : 'MainCtrl'
+		templateUrl : 'views/main.html'
 	});
 	$routeProvider.otherwise({
 		redirectTo : '/'
