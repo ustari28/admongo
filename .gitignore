@@ -2,4 +2,5 @@
 /target
 /bin
 /libs/bower_components
+/src/staticfiles/bower_components
 .classpath

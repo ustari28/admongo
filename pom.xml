@@ -46,7 +46,7 @@
 							<arguments>
 								<argument>update</argument>
 							</arguments>
-							<workingDirectory>${basedir}/libs</workingDirectory>
+							<workingDirectory>${basedir}/src/main/staticfiles</workingDirectory>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -61,6 +61,7 @@
 									<maxIdleTime>60000</maxIdleTime>
 								</connector>
 							</connectors>
+							<contextPath>${app.context.path}</contextPath>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -71,13 +72,6 @@
 							<target>
 								<copy todir="${project.build.directory}/${project.build.finalName}">
 									<fileset dir="${basedir}/src/staticfiles">
-										<include name="**/*" />
-									</fileset>
-									<fileset dir="${basedir}/src/main/webapp">
-										<include name="**/*" />
-										<exclude name="WEB-INF" />
-									</fileset>
-									<fileset dir="${basedir}/libs">
 										<include name="**/*" />
 										<exclude name="*.log" />
 										<exclude name="bower.json" />
@@ -146,13 +140,6 @@
 							<target>
 								<copy todir="${project.build.directory}/${project.build.finalName}">
 									<fileset dir="${basedir}/src/staticfiles">
-										<include name="**/*" />
-									</fileset>
-									<fileset dir="${basedir}/src/main/webapp">
-										<include name="**/*" />
-										<exclude name="WEB-INF" />
-									</fileset>
-									<fileset dir="${basedir}/libs">
 										<include name="**/*" />
 										<exclude name="*.log" />
 										<exclude name="bower.json" />
