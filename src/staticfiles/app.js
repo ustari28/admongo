@@ -5,7 +5,7 @@ var admongo = angular.module('admongo', ['ngResource',
                                          'ngRoute',
                                          'ui.bootstrap',
                                          'pascalprecht.translate',
-                                         'main']);
+                                         'main','header']);
 // Configuracion del route provider
 admongo.config(['$routeProvider', function($routeProvider) {
 	console.log("configurando rp");
@@ -43,3 +43,4 @@ admongo.config(['$httpProvider', function($httpProvider) {
 }]);
 
 angular.module('main',[]);
+angular.module('header',[]);

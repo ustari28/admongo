@@ -3,5 +3,6 @@
 	"TITLE_APP_MIN" : "AdMongo",
 	"SALUDO" : "Hola, seguidores del mundo Mongo!!!",
 	"MENSAJE_INICIAL" : "Esta aplicación solo busca mostrar de forma mas amigable las características de Mongo que ya conoces.",
-	"LEER_MAS_BOTON": "Leer más"
+	"LEER_MAS_BOTON": "Leer más",
+	"CONECTAR_BOTON" : "Conectar"
 }
