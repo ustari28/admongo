@@ -9,7 +9,6 @@
 		</button>
 		<a class="navbar-brand active" href="#/">{{"TITLE_APP_MIN" |
 			translate}}</a>
-		<a class="navbar-brand"  href="#/" data-ng-click="mostrarVentanaConectar()">{{"CONECTAR_BOTON" | translate}}</a>
+		<a class="navbar-brand" href="#connect" data-togle-modal="modal" role="button" class="btn">{{"CONECTAR_BOTON" | translate}}</a>
 	</div>
-	<div data-ng-include="'views/login.html'" data-ng-if="mostrarConectar"></div>
 </div>

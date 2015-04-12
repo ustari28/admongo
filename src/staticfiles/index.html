@@ -15,17 +15,31 @@
 	rel="stylesheet" type="text/css">
 <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"
 	rel="stylesheet" type="text/css">
+<link
+	href="bower_components/bootstrap-modal/css/bootstrap-modal-bs3patch.css"
+	rel="stylesheet" type="text/css">
+<link href="bower_components/bootstrap-modal/css/bootstrap-modal.css"
+	rel="stylesheet" type="text/css">
 <link href="css/app.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" data-ng-include="'views/header.html'"></nav>
+	<nav class="navbar navbar-inverse navbar-fixed-top"
+		data-ng-include="'views/header.html'"></nav>
 	<div class="container" ng-view></div>
 	<footer class="footer" data-ng-include="'views/footer.html'"></footer>
+	<a href="#connect" role="button" class="btn" data-toggle="modal">Launch
+		demo modal</a>
+	<div id="connect" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		data-ng-include="'views/login.html'"></div>
 	<!-- Here we load AngularJS and the AngularJS resource component -->
 	<script src="bower_components/angular/angular.js"></script>
 	<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 	<script
 		src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="bower_components/bootstrap-modal/js/bootstrap-modal.js"></script>
+	<script
+		src="bower_components/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
 	<script
 		src="bower_components/angular-translate/angular-translate.min.js"></script>
 	<script

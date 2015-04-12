@@ -46,7 +46,7 @@
 							<arguments>
 								<argument>update</argument>
 							</arguments>
-							<workingDirectory>${basedir}/src/main/staticfiles</workingDirectory>
+							<workingDirectory>${basedir}/src/staticfiles</workingDirectory>
 						</configuration>
 					</plugin>
 					<plugin>
